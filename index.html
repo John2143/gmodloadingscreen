@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "utf-8">
+	<title>JSDL</title>
+	
+	<link rel = "stylesheet" href = "./main.css" type = "text/css">
+	<link rel = "shortcut icon" href = "./icon.png">
+</head>
+<body>
+	<!--
+	<div id = "contain">
+		<input type = "text" id = "open-text" jvalue = "Enter your files here!"  jlink = "load" class = "jtext jlink"></input>
+		<input type = "button" id = "load" value = "Go!" class = "jbutton"></button>
+	</div>
+	-->
+	
+	<input type="file" onchange="__.doFiles(this.files,function(x){(parseText(x)).appendTo($('#content'));});" multiple = "multiple"/>
+	<div id = "content">:)</div><div id = "console-log"></div>
+	
+	<!--Global Namespace-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">//Uses jquery</script>
+	<script type = "text/javascript"> __ = {}; //Global namespace is represented by __</script> 
+	<!--Utility Scripts-->
+	<script src="./console.js"></script>
+	<script src="./fileread.js"></script>
+	<script src="./functions.js"></script>
+	<!--Objects-->
+	<script src="./Parse.js"></script>
+	<script src="./pHeader.js"></script>
+	<script src="./pType.js"></script>
+	<script src="./pFunction.js"></script>
+	<!--Start-->
+	<script src="./application.js"></script>
+</body>
+</html>
