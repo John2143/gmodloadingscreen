@@ -2,23 +2,94 @@
 <html lang = "en">
 <head>
 	<meta charset = "utf-8">
+	<script type = "text/javascript">
+		function GameDetails( servername, serverurl, mapname, maxplayers, steamid, gamemode ) {}
+		function SetProgress(pct){
+			document.getElementById("progressin").style.width = Math.floor(pct*100) + "%";
+		}
+		function DownloadingFile( fileName ) {
+			var fl = document.getElementById("file");
+			fl.innerHTML = ("Currently downloading" + fileName + "...");
+			
+		}
+		function SetStatusChanged( status ) {
+			var sts = document.getElementById("status");
+			sts.innerHTML = (status + "...");
+		}
+		var totalFilesNeeded = 0
+		function SetFilesTotal( total ) {
+			var tot = document.getElementById("total");
+			tot.innerHTML = (total + " files to download.");
+			totalFilesNeeded = total
+		}
+		function SetFilesNeeded( needed ) {
+			var tot = document.getElementById("total");
+			tot.innerHTML = (needed + "/" + totalFilesNeeded + " files downloaded.");
+		}
+		
+		
+		function initpage() {
+			SetFilesNeeded(0);
+			SetFilesTotal(0);
+			SetStatusChanged("Retreiving status");
+			SetProgress(1)
+		}
+	</script>
+	<style type = "text/css">
+		#progressin{
+			background-color:#0C0;
+			height:100%;
+		}
+		#progressbar{
+			border: 2px solid; 
+			background-color:#555;
+			height: 10%;
+			width: 80%;
+			position:absolute;
+			left: 10%;
+			top: 70%
+		}
+		#status{
+		
+		}
+		#left{
+		
+		}
+		#file{
+		
+		}
+		#total{
+			position:absolute;
+			height: 10%;
+			width: 80%;
+			left: 10%;
+			top: 60%;
+			text-align: center;
+		}
+		body{
+			background-color:#CCC;
+			font-size: 2.5em;
+		}
 	
-	<link rel = "stylesheet" href = "./main.css" type = "text/css">
+	</style>
 </head>
-<body>
+<body onload = "initpage();">
 	<div id = "contain">
 		<div id = "total">0 files to download.</div>
-		<div id = "left">0 files left</div>
 		<div id = "file"></div>
 		<div id = "status">loading...</div>
+		<div id = "progressbar">
+			<div id = "progressin">
+			</div>
+		</div>
 	</div>
 	
 	<!--Global Namespace-->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">//Uses jquery</script>
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">//Uses jquery</script>-->
 	<script type = "text/javascript"> __ = {}; //Global namespace is represented by __</script> 
 	<!--Utility Scripts-->
 	<!--Objects-->
 	<!--Start-->
-	<script src="./application.js"></script>
+	
 </body>
 </html>
